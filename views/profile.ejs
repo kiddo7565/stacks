@@ -1,0 +1,288 @@
+<%- include('partials/logged-in-header') -%>
+<div class="container card-container">
+  <div class="row justify-content-center">
+      <div class="col-6">
+          <!-- <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+          <!-- </div> --> 
+          <div class="mt-5">
+            <h2>Add a Book</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Book Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+              <label for="country" class="form-label">Country Author Is From</label>
+              <select class="form-select" aria-label="Default select example" id="country" name="country">
+                <option selected>Select Country</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="Andorra">Andorra</option>
+                <option value="Angola">Angola</option>
+                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                <option value="Argentina 🇦🇷">Argentina</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="Bolivia 🇧🇴">Bolivia</option>
+                <option value="Bosnia">Bosnia</option>
+                <option value="Botswana"></option>
+                <option value="Brazil 🇧🇷">Brazil</option>
+                <option value="Brunei">Brunei</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+                <option value="Cabo Verde">Cabo Verde</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Central African Republic">Central African Republic</option>
+                <option value="Chad">Chad</option>
+                <option value="Chile 🇨🇱">Chile</option>
+                <option value="China">China</option>
+                <option value="Colombia 🇨🇴">Colombia</option>
+                <option value="Comoros">Comoros</option>
+                <option value="Congo">Congo</option>
+                <option value="Costa Rica 🇨🇷">Costa Rica</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cuba 🇨🇺">Cuba</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Domincan Republic 🇩🇴">Dominican Republic</option>
+                <option value="Ecuador 🇪🇨">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador 🇸🇻">El Salvador</option>
+                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Eswatini">Eswatini</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Greece">Greece</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guatemala 🇬🇹">Guatemala</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Holy See">Holy See</option>
+                <option value="Honduras 🇭🇳">Honduras</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran">Iran</option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Laos">Laos</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libya">Libya</option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malta">Malta</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="México 🇲🇽">México</option>
+                <option value="Micronesia">Micronesia</option>
+                <option value="Moldova">Moldova</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Montenegro">Montenegro</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Namibia">Namibia</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua 🇳🇮">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="North Korea">North Korea</option>
+                <option value="North Macedonia">North Macedonia</option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Palestine State">Palestine State</option>
+                <option value="Panamá 🇵🇦">Panamá</option>
+                <option valus="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay 🇵🇾">Paraguay</option>
+                <option value="Perú 🇵🇪">Perú</option>
+                <option valus="Philippines">Philippines</option>
+                <option valus="Poland">Poland</option>
+                <option valus="Portugal">Portugal</option>
+                <option valus="Qatar">Qatar</option>
+                <option valus="Romania">Romaina</option>
+                <option valus="Russia">Russia</option>
+                <option valus="Rwanda">Rwanda</option>
+                <option valus="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                <option valus="Saint Lucia">Saint Lucia</option>
+                <option valus="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                <option valus="Samoa">Samoa</option>
+                <option valus="San Marino">San Marino</option>
+                <option valus="Sao Tome and Principe">Sao Tome and Principe</option>
+                <option valus="Saudi Arabia">Saudi Arabia</option>
+                <option valus="Senegal">Senegal</option>
+                <option valus="Serbia">Serbia</option>
+                <option valus="Seychelles">Seychelles</option>
+                <option valus="Sierra Leone">Sierra Leone</option>
+                <option valus="Singapore">Singapore</option>
+                <option valus="Slovakia">Slovakia</option>
+                <option valus="Slovenia">Slovenia</option>
+                <option valus="Solomon Islands">Solomon Islands</option>
+                <option valus="Somalia">Somalia</option>
+                <option valus="South Africia">South Africia</option>
+                <option valus="South Korea">South Korea</option>
+                <option valus="South Sudan">South Sudan</option>
+                <option valus="Spain">Spain</option>
+                <option valus="Sri Lanka">Sri Lanka</option>
+                <option valus="Sudan">Sudan</option>
+                <option valus="Suriname">Suriname</option>
+                <option valus="Sweden">Sweden</option>
+                <option valus="Switzerland">Switzerland</option>
+                <option valus="Syria">Syria</option>
+                <option valus="Tajikistan">Tajikistan</option>
+                <option valus="Tanzania">Tanzania</option>
+                <option valus="Thailand">Thailand</option>
+                <option valus="Timor-Leste">Timor-Leste</option>
+                <option valus="Togo">Togo</option>
+                <option valus="Tonga">Tonga</option>
+                <option valus="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option valus="Tunisia">Tunisia</option>
+                <option valus="Turkey">Turkey</option>
+                <option valus="Turkmenistan">Turkmenistan</option>
+                <option valus="Tuvalu">Tuvalu</option>
+                <option valus="Uganda">Uganda</option>
+                <option valus="Ukraine">Ukraine</option>
+                <option valus="United Arab Emirates">United Arab Emirates</option>
+                <option valus="United Kingdon">United Kingdon</option>
+                <option valus="United States of America">United Ststes of America</option>
+                <option value="Uruguay 🇺🇾">Uruguay</option>
+                <option valus="Uzbekistan">Uzbekistan</option>
+                <option valus="Vanuatu">Vanuatu</option>
+                <option value="Venezuela 🇻🇪">Venezuela</option>
+                <option valus="Vietnam">Vietnam</option>
+                <option valus="Yemen">Yemen</option>
+                <option valus="Zambia">Zambia</option>
+                <option valus="Zimbabwe">Zimbabwe</option>
+              </select>
+              </div>
+              <div class="mb-3">
+                <label for="basic-url" class="form-label">Book Type</label>
+                <select class="form-select" aria-label="Default select example" id="dish" name="dish">
+                  <option selected>Please Select</option>
+                  <option value="Action and Adventure">Action and Adventure</option>
+                  <option value="Autobiography">Autobiography</option>
+                  <option value="Biography">Biography</option>
+                  <option value="Children's">Children's</option>
+                  <option value="Classic">Classic</option>
+                  <option value="Cookbook">Cookbook</option>
+                  <option value="Comic Book">Comic Book</option>
+                  <option value="Coming of Age">Coming of Age</option>
+                  <option value="Crime">Crime</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Graphic Novel">Graphic Novel</option>
+                  <option value="Humor">Humor</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Memoir">Memoir</option>
+                  <option value="Paranormal Romance">Paranormal Romance</option>
+                  <option value="Religion/Spirituality/New Age">Religion/Spirituality/New Age</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Science Fiction">Science Fiction</option>
+                  <option value="Short Story">Short Story</option>
+                  <option value="Suspense">Suspense</option>
+                  <option value="Self-help">Self-help</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="True Crime">True Crime</option>
+                  <option value="Young Adult">Young Adult</option>
+                </select>
+                </div>
+              <div class="mb-3">
+                <label for="caption" class="form-label">Headline</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="ingredients" class="form-label">Review</label>
+                <textarea class="form-control" id="ingredients" name="ingredients" placeholder="" rows="5"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="directions" class="form-label">Recommendations In Same Genre</label>
+                <textarea class="form-control" id="directions" name="directions" placeholder="" rows="5"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+      <!-- <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+        </div>  
+      </div>   -->
+    </div>
+  </div>
+<!-- <%- include('partials/footer') -%> -->
+                
+              
